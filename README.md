@@ -26,7 +26,7 @@ _rspec spec_
 
 @@@@
 Pacote: integration 
-Classes utilizadas para chamar serviços devem ser inseridas neste pacote.
+Classes utilizadas para chamar serviços devem ser inseridas neste pacote.<br>
 
 Class: IntegrationLocawebMock
 Responsável por chamar o serviço 'http://tweeps.locaweb.com.br/tweeps' e devolver apenas o corpo do serviço sem nenhuma formatação.

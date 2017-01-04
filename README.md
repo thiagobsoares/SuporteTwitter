@@ -25,43 +25,43 @@ _rspec spec_
 **Estrutura da API:**
 
 
-- Pacote: integration
+- **Pacote:** integration
 
 Classes utilizadas para chamar serviços devem ser inseridas neste pacote.
 
-Class: IntegrationLocawebMock
+**Class:** IntegrationLocawebMock
 
 Responsável por chamar o serviço 'http://tweeps.locaweb.com.br/tweeps' e devolver apenas o corpo do serviço sem nenhuma formatação.
 
 
 
-- Pacote: error
+- **Pacote:** error
 
 Classes criadas para notificar algum erro da aplicação devem ser inseridas neste pacote.
 
-Class: BadConnection
+**Class:** BadConnection
 
 Caso aconteça algum erro na conexão com o serviço, está classe é lançada.
 
-- Pacote: factories
+- **Pacote:** factories
 
 Classes responsáveis pela criação de outras classes.
 
-Class: TweetsJsonFactory 
+**Class:** TweetsJsonFactory 
 
 Classe utilizada para facilitar a criação de casos de teste, criando estruturas de JSON igual a do service.
 
-Class: UserTweetsObjFactory 
+**Class:** UserTweetsObjFactory 
 
 Classe utilizada para facilitar a criação de casos de teste, criando objetos das classes User e Tweets.
 
 
-- Pacote: model
+- **Pacote:** model
 
 Pacote para armazenar as classes de modelos da aplicação.
 
 
-- Class: Tweet 
+**Class:** Tweet 
 
 Representa um tweet, para manter o encapsulamento, não existe métodos para alterar os valores, somente na criação do objeto.
 
@@ -78,7 +78,7 @@ Métodos:
 - date_format =  formata a data para dia/mês/ano hora:minuto:segundo
 
 
-Class: User 
+**Class:** User 
 
 Representa um user, para manter o encapsulamento, não existe métodos para alterar os valores, somente na criação do objeto.
 
@@ -94,19 +94,19 @@ Métodos:
 Importante: Ambas classes verificam se os atributos NÃO são nil, caso algum atributo esteja nil é lançado um erro (ArgumentError) na inicialização do objeto.
 
 
-- Pacote: controllers
+- **Pacote:** controllers
 
 Responsável por armazenar todos os controllers da aplicação
 
-Class: TweetsController
+**Class:** TweetsController
 
 Responsável por chamar as classes de modelos, neste controlle é inicializado uma constante aonde é armazenado o id utilizado para filtrar os tweets, além disso ele inicializa a classe de serviço e passa como parametro para classe responsável pela lógica.
 
-- Pacote: facade
+- **Pacote:** facade
 
 Pacote responsavel por armazenar as classes facade
 
-Class: TwitterFacade
+**Class:** TwitterFacade
 - Construtor: Recebe como parâmetro a implementação de uma classe que se comunica com o serviço (na aplicação é utilizada IntegrationLocawebMock que se comunica com o serviço http://tweeps.locaweb.com.br/tweeps)
 
 Métodos:

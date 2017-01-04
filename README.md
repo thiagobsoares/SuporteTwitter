@@ -24,87 +24,96 @@ _rspec spec_
 
 **Estrutura da API:**
 
-@@@@
-Pacote: integration 
-Classes utilizadas para chamar serviços devem ser inseridas neste pacote.<br>
+
+- Pacote: integration
+
+Classes utilizadas para chamar serviços devem ser inseridas neste pacote.
 
 Class: IntegrationLocawebMock
+
 Responsável por chamar o serviço 'http://tweeps.locaweb.com.br/tweeps' e devolver apenas o corpo do serviço sem nenhuma formatação.
 
 
-@@@@
-Pacote: error
+
+- Pacote: error
 Classes criadas para notificar algum erro da aplicação devem ser inseridas neste pacote.
 
 Class: BadConnection
+
 Caso aconteça algum erro na conexão com o serviço, está classe é lançada.
 
-@@@@
-Pacote: factories
+- Pacote: factories
+
 Classes responsáveis pela criação de outras classes.
 
 Class: TweetsJsonFactory 
+
 Classe utilizada para facilitar a criação de casos de teste, criando estruturas de JSON igual a do service.
 
 Class: UserTweetsObjFactory 
+
 Classe utilizada para facilitar a criação de casos de teste, criando objetos das classes User e Tweets.
 
-@@@@
-Pacote: model
+
+- Pacote: model
+
 Pacote para armazenar as classes de modelos da aplicação.
 
 
-Class: Tweet 
+- Class: Tweet 
+
 Representa um tweet, para manter o encapsulamento, não existe métodos para alterar os valores, somente na criação do objeto.
 
 Atributos:
-id - id do tweet
-user - usuário que criou
-retweets - quantidade de retweets
-likes - quantidade de likes
-text - texto do tweet
-date - data de criação
+- id - id do tweet
+- user - usuário que criou
+- retweets - quantidade de retweets
+- likes - quantidade de likes
+- text - texto do tweet
+- date - data de criação
 
 Métodos:
-url = retorna a url para o link direito, foi utilizado como contexto (https://twitter.com)
-date_format =  formata a data para dia/mês/ano hora:minuto:segundo
+- url = retorna a url para o link direito, foi utilizado como contexto (https://twitter.com)
+- date_format =  formata a data para dia/mês/ano hora:minuto:segundo
 
 
 Class: User 
+
 Representa um user, para manter o encapsulamento, não existe métodos para alterar os valores, somente na criação do objeto.
 
 Atributos do objeto:
-id - id do user
-name - nome da página do usuário
-fallowers - quantidade de seguidores
-tweets - lista de todos tweets do usuário
+- id - id do user
+- name - nome da página do usuário
+- fallowers - quantidade de seguidores
+- tweets - lista de todos tweets do usuário
 
 Métodos:
-url = retorna a url para o link direito, foi utilizado como contexto (https://twitter.com)
+- url = retorna a url para o link direito, foi utilizado como contexto (https://twitter.com)
 
 Importante: Ambas classes verificam se os atributos NÃO são nil, caso algum atributo esteja nil é lançado um erro (ArgumentError) na inicialização do objeto.
 
 
-@@@@
-Pacote: controllers
+- Pacote: controllers
+
 Responsável por armazenar todos os controllers da aplicação
 
 Class: TweetsController
+
 Responsável por chamar as classes de modelos, neste controlle é inicializado uma constante aonde é armazenado o id utilizado para filtrar os tweets, além disso ele inicializa a classe de serviço e passa como parametro para classe responsável pela lógica.
 
-@@@
-Pacote: facade
+- Pacote: facade
+
 Pacote responsavel por armazenar as classes facade
 
 Class: TwitterFacade
-Construtor: Recebe como parâmetro a implementação de uma classe que se comunica com o serviço (na aplicação é utilizada IntegrationLocawebMock que se comunica com o serviço http://tweeps.locaweb.com.br/tweeps)
+- Construtor: Recebe como parâmetro a implementação de uma classe que se comunica com o serviço (na aplicação é utilizada IntegrationLocawebMock que se comunica com o serviço http://tweeps.locaweb.com.br/tweeps)
 
 Métodos:
-tweets_json = Recebe o corpo de um response do serviço e faz o parse para json.
-json_valid? = Verifica se o json é valido.
-usuario_mencionado? = Verifica se o usuário foi mencionado no tweet (ambos passados por parâmetro)
-parse_json_to_obj = Faz o parse de json para objeto (Tweet e User)
-filter_by_user_mention = Filtra os tweets recebidos pelo serviço (seguindo a espeficicação, verifica se o usuário foi mencionado e não seja replay do mesmo usuário), além de filtar o método faz o agrupamento dos tweets por usuários.
-order_tweets = Ordena os tweets conforme foi especificado, primeiro verifica o numero de seguidores do usuário, depois verifica os números de retweets e por últimos os likes.
+- tweets_json = Recebe o corpo de um response do serviço e faz o parse para json.
+- json_valid? = Verifica se o json é valido.
+- usuario_mencionado? = Verifica se o usuário foi mencionado no tweet (ambos passados por parâmetro)
+- parse_json_to_obj = Faz o parse de json para objeto (Tweet e User)
+- filter_by_user_mention = Filtra os tweets recebidos pelo serviço (seguindo a espeficicação, verifica se o usuário foi mencionado e não seja replay do mesmo usuário), além de filtar o método faz o agrupamento dos tweets por usuários.
+- order_tweets = Ordena os tweets conforme foi especificado, primeiro verifica o numero de seguidores do usuário, depois verifica os números de retweets e por últimos os likes.
 
 Importante, se no serviço retornado estiver faltando algum parametro que é utilizado pela API, será lançado um erro (ArgumentError) informando o campo.

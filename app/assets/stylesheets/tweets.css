@@ -1,0 +1,38 @@
+body{
+	background-color: 	#FFE4B5;
+}
+
+.painel-principal{
+	background-color: #FFFFFF;
+	margin-bottom: 20px;
+}
+
+.painel-user{
+	background-color: #E6E6FA;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.painel-tweet{
+	margin-bottom: 20px;
+	margin-top: 20px;
+	border-bottom: 1px solid #BBB
+}
+
+.bloco{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+.titulo{
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	color:black;
+	background-color:#FFDEAD;
+	margin-bottom:25px;
+	font-size:60px;
+	padding: 20px;
+}
+.status-tweets{
+	margin-top:20px;
+	margin-bottom:20px;
+}

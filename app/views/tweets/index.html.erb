@@ -1,0 +1,32 @@
+<h1 class="text-center titulo">Tweets</h1>
+<% unless @error %>
+<% @users_tweets.each do |user| %>
+<div class="container col-md-8 col-md-offset-2 painel-principal">
+	<div class="row painel-user">
+		<div class="col-md-3 col-md-offset-1"><%= link_to "#{user.name}", "#{user.url}" %></div>
+		<div class="col-md-2 col-md-offset-5"><strong>Fallowers:</strong> <%= "#{user.fallowers}"%></div>
+	</div>
+	<div class="col-md-12 painel-tweet">
+		<% user.tweets.each do |tweet| %>
+			<div class="col-md-12">
+				<div class="bloco row">
+					<%= "#{tweet.text}" %>
+				</div>
+				<div class="row bloco status-tweets">
+					<div class="col-md-2"><strong>Retweets:</strong> <%= "#{tweet.retweets}" %></div>
+					<div class="col-md-2 col-md-offset-7"><strong>Likes:</strong> <%= "#{tweet.likes}" %></div>
+				</div>
+				<div class="row bloco info-tweets">
+					<div class="col-md-4"><strong>Data:</strong> <%= "#{tweet.date_format}" %></div>
+					<div class="col-md-3 col-md-offset-5"><%= link_to "ver tweet original", "#{tweet.url}" %></div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<% end %>
+<% else %>
+<div class="container col-md-4 col-md-offset-4 text-center">
+	<h3> Ocorreu um erro no sistema <h3>
+</div>
+<% end %>

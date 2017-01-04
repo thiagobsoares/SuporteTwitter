@@ -17,7 +17,9 @@ Se necessário mudar o nível do logger, deve seguir os seguintes passos:
 1 - Entrar no diretório config/environment.rb
 2 - Alterar Rails.logger.level para o nível necessário. (0 - debug, 1 - info, 2 - warn, 3 - error, 4 - fatal, 5 - unknown)
 
-Para executar os teste
+Para executar os teste dentro do diretório da API, deve ser usado o comando:
+rspec spec
+
 Estrutura da API:
 
 @@@@

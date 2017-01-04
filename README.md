@@ -1,26 +1,28 @@
-Suporte Twitter.
+## Suporte Twitter.
 
 Aplicativo desenvolvido para listar em uma página web, os tweets do Twitter que mencionam um usuário especifico, ordenando-os (decrescente) pelo número de seguidores, retweets e likes.
 
 Foi utilizado a linguaguem ruby, framework rails e rspec-rails para teste.
 
-Utilizando API:
+**Utilizando API:**
 
-1 - API deve ser clonada no diretório de preferência
-2 - Deve subir o servidor da API com o comando 'rails s' (servidor utilizado: Puma)
-3 - Link para acesso: http://localhost:3000/tweets
+- API deve ser clonada no diretório de preferência
+- Deve subir o servidor da API com o comando 'rails s' (servidor utilizado: **Puma**)
+- Link para acesso: **http://localhost:3000/tweets**
 
-Obs: O nível do logger padrão esta como debug
+
+_Obs: O nível do logger padrão esta como debug_
 
 Se necessário mudar o nível do logger, deve seguir os seguintes passos:
 
-1 - Entrar no diretório config/environment.rb
-2 - Alterar Rails.logger.level para o nível necessário. (0 - debug, 1 - info, 2 - warn, 3 - error, 4 - fatal, 5 - unknown)
+- Entrar no diretório config/environment.rb
+- Alterar Rails.logger.level para o nível necessário.
+(0 - debug, 1 - info, 2 - warn, 3 - error, 4 - fatal, 5 - unknown)
 
 Para executar os teste dentro do diretório da API, deve ser usado o comando:
-rspec spec
+_rspec spec_
 
-Estrutura da API:
+**Estrutura da API:**
 
 @@@@
 Pacote: integration 

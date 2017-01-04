@@ -36,6 +36,7 @@ Responsável por chamar o serviço 'http://tweeps.locaweb.com.br/tweeps' e devol
 
 
 - Pacote: error
+
 Classes criadas para notificar algum erro da aplicação devem ser inseridas neste pacote.
 
 Class: BadConnection

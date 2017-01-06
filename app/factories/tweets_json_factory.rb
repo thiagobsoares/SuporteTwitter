@@ -30,29 +30,20 @@ class TweetsJsonFactory
 		resultado
 	end
 
-	def produce_tweets_json_hash(quantidade = 2)
-		file = File.open("app/factories/twitter-locaweb-mock.txt", 'r').read
-		json = JSON.parse(file)
-		tweets = json["statuses"]
-		resultado = Hash.new
-
-		quantidade -= 1
-
-		for i in (0..quantidade)
-			array = Array.new
-			array << tweets[i]
-			resultado[tweets[i]['user']['id_str']] = array
-		end
-
-		resultado
-	end
-
 	def produce_body
-		File.open("app/factories/twitter-locaweb-mock.txt", 'r').read
+		File.open("app/factories/twitter-locaweb-body.txt", 'r').read
 	end
 
-	def produce_body_locaweb
-		File.open("app/factories/twitter-locaweb-body.txt", 'r').read
+	def produce_body_with_locaweb
+		File.open("app/factories/twitter-locaweb-body-with-locaweb.txt", 'r').read
+	end
+
+	def produce_json_locaweb_group
+		File.open("app/factories/twitter-locaweb-mock-group.txt", 'r').read
+	end
+
+	def produce_json_locaweb_group_different
+		File.open("app/factories/twitter-locaweb-mock-group-user-different.txt", 'r').read
 	end
 	
 end
